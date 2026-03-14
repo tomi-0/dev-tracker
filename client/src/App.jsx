@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
 import Projects from './pages/Projects'
 import Skills from './pages/Skills'
-import Form from './pages/Form'
 
 import './App.css'
 
@@ -20,7 +19,6 @@ const App = () => {
         <Route path="/" element={<Dashboard />}/>
         <Route path="/projects" element={<Projects />}/>
         <Route path="/skills" element={<Skills />}/>
-        <Route path="/form" element={<Form />}/>
       </Routes>
     </Router>
   )
