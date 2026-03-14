@@ -1,4 +1,9 @@
-const Skills = () => {
+import { useState } from 'react'
+import { initialSkills } from '../data/testData'
+import SkillCard from "../components/SkillCard"
+
+const Skills = ({skills, setSkills, activityLog, setActivityLog}) => {
+
   return(
     <section>
       <h1>Skills</h1>
@@ -6,7 +11,9 @@ const Skills = () => {
 
       <button>+ Log skill</button>
 
-      <p>list all skills</p>
+      {skills.map(skill => (
+        <SkillCard key={skill.id} skill={skill} />
+      ))}
     </section>
   )
 }

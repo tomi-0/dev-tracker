@@ -1,4 +1,9 @@
-const Projects = () => {
+import { useState } from "react"
+import { initialProjects, initialSkills } from "../data/testData"
+import ProjectCard from "../components//ProjectCard"
+
+const Projects = ({projects, setProjects, activityLog, setActivityLog}) => {
+
   return(
     <section>
       <h1>Projects</h1>
@@ -6,7 +11,10 @@ const Projects = () => {
 
       <button>+ New projext</button>
 
-      <p>List of projects...</p>
+      {projects.map(project => 
+        <ProjectCard key={project.id} project={project}/>
+      )}
+
     </section>
   )
 }
