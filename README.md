@@ -44,7 +44,7 @@ A full-stack web app for developers to log coding projects and track skills they
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/dev-tracker.git
+   git clone https://github.com/tomi-0/dev-tracker.git
    cd dev-tracker
    ```
 
