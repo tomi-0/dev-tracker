@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
 import { initialProjects, initialSkills, initialActivityLog } from './data/testData'
@@ -21,7 +21,7 @@ const App = () => {
   return (
     // Router watches the URL in the browser's address bar. When it changes, instead of making a server request, 
     // it just re-renders the matching component. The server is never contacted
-    <Router>
+    <BrowserRouter>
       <Navbar />
       {/*container for all your route definitions, only renders the first route that matches.*/} 
       <Routes>
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/projects" element={<Projects projects={projects} setProjects={setProjects} activityLog={activityLog} setActivityLog={setActivityLog}/>}/>
         <Route path="/skills" element={<Skills skills={skills} setSkills={setSkills} activityLog={activityLog} setActivityLog={setActivityLog}/>}/>
       </Routes>
-    </Router>
+    </BrowserRouter>
   )
 }
 
