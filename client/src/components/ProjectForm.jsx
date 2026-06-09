@@ -1,12 +1,19 @@
 const ProjectForm = ( {initialProjects} ) => {
 
   const addProject = (formData) => {
-    // add to activity log
+    // add new project 
     const newProject = {
       name: formData.get("project-name"), 
       description: formData.get("description"), 
       stack: formData.get("tech-stack"), 
       status: formData.get("status"), 
+      dateAdded: Date()
+    }
+
+    // add new item to activity log
+    const acitivtyLogItem = {
+      type: "skill_added",
+      message: "Added skill "+formData.get("skill-name"),
       dateAdded: Date()
     }
 

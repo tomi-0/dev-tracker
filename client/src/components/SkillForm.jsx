@@ -8,6 +8,12 @@ const SkillForm = () => {
         dateAdded: Date()
     }
 
+    const acitivtyLogItem = {
+      type: "skill_added",
+      message: "Added skill "+formData.get("skill-name"),
+      dateAdded: Date()
+    }
+
     console.log(newSkill)
   }
 
