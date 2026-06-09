@@ -4,6 +4,7 @@ export const initialProjects = [
   { id: 3, name: "FSO phonebook", description: "Phonebook backend with REST API and MongoDB", stack: "React, Express, MongoDB", status: "paused", dateAdded: "2026-03-01" },
   { id: 4, name: "Countries app", description: "Browse countries using a public REST API", stack: "React, REST API", status: "completed", dateAdded: "2026-02-10" },
   { id: 5, name: "Blog list app", description: "Full stack blog listing app with auth", stack: "React, Node.js, MongoDB", status: "in_progress", dateAdded: "2026-03-08" },
+  { id: 6, name: "Cafe app", description: "App for finding cafes", stack: "React, Node.js, Supabase", status: "in_progress", dateAdded: "2026-06-08" }
 ]
 
 export const initialSkills = [

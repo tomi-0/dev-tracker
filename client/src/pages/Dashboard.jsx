@@ -12,6 +12,10 @@ const Dashboard = ({skills, projects, activityLog}) => {
   const recentSkills = skills.filter(s => (new Date(s.dateAdded) >= weekAgo))
   const inProgress = projects.filter(p => (p.status === "in_progress" || p.status === "paused"))
 
+  console.log(skills)
+  console.log(projects)
+  console.log(activityLog)
+
   const cardObject = [
     {id: 0, name:"PROJECTS", number:recentProjects.length},
     {id: 1, name:"SKILLS TRACKED", number:recentSkills.length},

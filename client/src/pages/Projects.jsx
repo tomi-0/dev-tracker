@@ -18,7 +18,7 @@ const Projects = ({projects, setProjects, activityLog, setActivityLog}) => {
       <button onClick={changeFormView}>
         {showForm? "Cancel" : "+ New project" }
       </button>
-      {showForm? <ProjectForm /> : <></>}
+      {showForm? <ProjectForm initialProjects={initialProjects} /> : <></>}
 
       {projects.map(project => 
         <ProjectCard key={project.id} project={project}/>
