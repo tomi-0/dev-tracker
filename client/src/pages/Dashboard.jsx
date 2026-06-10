@@ -36,7 +36,7 @@ const Dashboard = ({skills, projects, activityLog}) => {
       
       <div>
         <h3>IN PROGRESS</h3>
-        {inProgress.map(project => (<ProjectCard key={project.id} project={project}/>))}
+        {inProgress.map(project => (<ProjectCard key={project.id} project={project} showActions={false}/>))}
       </div>
       
       

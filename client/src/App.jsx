@@ -18,6 +18,35 @@ const App = () => {
   const [projects, setProjects] = useState(initialProjects)
   const [activityLog, setActivityLog] = useState(initialActivityLog)
 
+  const deleteProject = (id) => {
+    setProjects(projects.filter(p => p.id !== id))
+  }
+
+  const updateProject = (newProject) => {
+    setProjects(projects.map(p => p.id === newProject.id? newProject : p))
+  }
+
+  const addProject = (newProject) => {
+    // spread operator (...) creates a new array by copying all elements of arr and appending the object obj at the end.
+    setProjects([...projects, newProject])
+  }
+
+  const deleteSkill = (id) => {
+    setSkills(skills.filter(s => s.id !== id))
+  }
+
+  const updateSkill = (newSkill) => {
+    setSkills(skills.map(s => s.id === newSkill.id? newSkill : s))
+  }
+
+  const addSkill = (newSkill) => {
+    setSkills([...skills, newSkill])
+  }
+
+  const addActivity = (newActivity) => {
+    setActivityLog([...activityLog, newActivity])
+  }
+
   return (
     // Router watches the URL in the browser's address bar. When it changes, instead of making a server request, 
     // it just re-renders the matching component. The server is never contacted
@@ -27,7 +56,7 @@ const App = () => {
       <Routes>
         {/*Route — defines a single path and what component to render for it*/} 
         <Route path="/" element={<Dashboard skills={skills} projects={projects} activityLog={activityLog}/>}/>
-        <Route path="/projects" element={<Projects projects={projects} setProjects={setProjects} activityLog={activityLog} setActivityLog={setActivityLog}/>}/>
+        <Route path="/projects" element={<Projects projects={projects} setProjects={setProjects} activityLog={activityLog} setActivityLog={setActivityLog} deleteProject={deleteProject} updateProject={updateProject} addProject={addProject} addActivity={addActivity}/>}/>
         <Route path="/skills" element={<Skills skills={skills} setSkills={setSkills} activityLog={activityLog} setActivityLog={setActivityLog}/>}/>
       </Routes>
     </BrowserRouter>

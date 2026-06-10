@@ -3,8 +3,9 @@ import { initialProjects, initialSkills } from "../data/testData"
 import ProjectCard from "../components/ProjectCard"
 import ProjectForm from "../components/ProjectForm"
 
-const Projects = ({projects, setProjects, activityLog, setActivityLog}) => {
+const Projects = ({projects, setProjects, activityLog, setActivityLog, deleteProject, updateProject, addProject, addActivity}) => {
   const [showForm, setShowForm] = useState(false)
+  const [editingId, setEditingId] = useState(null)
 
   const changeFormView = () => {
       setShowForm(!showForm)
@@ -18,10 +19,10 @@ const Projects = ({projects, setProjects, activityLog, setActivityLog}) => {
       <button onClick={changeFormView}>
         {showForm? "Cancel" : "+ New project" }
       </button>
-      {showForm? <ProjectForm initialProjects={initialProjects} /> : <></>}
+      {showForm? <ProjectForm addProject={addProject} addActivity={addActivity}/> : <></>}
 
       {projects.map(project => 
-        <ProjectCard key={project.id} project={project}/>
+        <ProjectCard key={project.id} project={project} showActions={true} deleteProject={deleteProject} updateProject={updateProject} editingId={editingId} setEditingId={setEditingId}/>
       )}
 
     </section>

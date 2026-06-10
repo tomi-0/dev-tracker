@@ -1,6 +1,6 @@
-const ProjectForm = ( {initialProjects} ) => {
+const ProjectForm = ( {addProject, addActivity} ) => {
 
-  const addProject = (formData) => {
+  const addNewProject = (formData) => {
     // add new project 
     const newProject = {
       name: formData.get("project-name"), 
@@ -12,16 +12,17 @@ const ProjectForm = ( {initialProjects} ) => {
 
     // add new item to activity log
     const acitivtyLogItem = {
-      type: "skill_added",
-      message: "Added skill "+formData.get("skill-name"),
+      type: "project_added",
+      message: "Added project "+formData.get("project-name"),
       dateAdded: Date()
     }
 
-    console.log(newProject)
+    addProject(newProject)
+    addActivity(acitivtyLogItem)
   }
 
   return(
-    <form action={addProject}>
+    <form action={addNewProject}>
       <input type="text" name="project-name" placeholder="e.g. dev-tracker"/>
       <input type="text" name="description" placeholder="What are you building?"/>
       {/* change leater to checbox of saved skills*/}
