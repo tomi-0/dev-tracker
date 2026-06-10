@@ -1,4 +1,4 @@
-const SkillForm = () => {
+const SkillForm = ({addSkill, addActivity}) => {
 
   const handleSkillForm = (formData) => {
     const newSkill = {
@@ -14,7 +14,9 @@ const SkillForm = () => {
       dateAdded: Date()
     }
 
-    console.log(newSkill)
+    addSkill(newSkill)
+    addActivity(acitivtyLogItem)
+    //console.log(newSkill)
   }
 
   return(
@@ -29,11 +31,11 @@ const SkillForm = () => {
       </select>
       <select id="category" name="skill-category" placeholder="e.g. Frontend">
         <option value="Frontend">Frontend</option>
-        <option value="Frontend">Backend</option>
-        <option value="Frontend">Language</option>
-        <option value="Frontend">Database</option>
-        <option value="Frontend">Tools</option>
-        <option value="Frontend">Concepts</option>
+        <option value="Backend">Backend</option>
+        <option value="Language">Language</option>
+        <option value="Database">Database</option>
+        <option value="Tools">Tools</option>
+        <option value="Concepts">Concepts</option>
       </select>
       <button type="submit">Save Skill</button>
     </form>

@@ -56,8 +56,8 @@ const App = () => {
       <Routes>
         {/*Route — defines a single path and what component to render for it*/} 
         <Route path="/" element={<Dashboard skills={skills} projects={projects} activityLog={activityLog}/>}/>
-        <Route path="/projects" element={<Projects projects={projects} setProjects={setProjects} activityLog={activityLog} setActivityLog={setActivityLog} deleteProject={deleteProject} updateProject={updateProject} addProject={addProject} addActivity={addActivity}/>}/>
-        <Route path="/skills" element={<Skills skills={skills} setSkills={setSkills} activityLog={activityLog} setActivityLog={setActivityLog}/>}/>
+        <Route path="/projects" element={<Projects projects={projects} deleteProject={deleteProject} updateProject={updateProject} addProject={addProject} addActivity={addActivity}/>}/>
+        <Route path="/skills" element={<Skills skills={skills} addSkill={addSkill} updateSkill={updateSkill} deleteSkill={deleteSkill} addActivity={addActivity}/>}/>
       </Routes>
     </BrowserRouter>
   )

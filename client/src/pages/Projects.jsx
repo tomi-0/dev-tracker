@@ -3,7 +3,7 @@ import { initialProjects, initialSkills } from "../data/testData"
 import ProjectCard from "../components/ProjectCard"
 import ProjectForm from "../components/ProjectForm"
 
-const Projects = ({projects, setProjects, activityLog, setActivityLog, deleteProject, updateProject, addProject, addActivity}) => {
+const Projects = ({projects, deleteProject, updateProject, addProject, addActivity}) => {
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState(null)
 
