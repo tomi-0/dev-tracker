@@ -11,7 +11,7 @@ const SkillForm = ({addSkill, addActivity}) => {
     const acitivtyLogItem = {
       type: "skill_added",
       message: "Added skill "+formData.get("skill-name"),
-      dateAdded: Date()
+      date: Date()
     }
 
     addSkill(newSkill)

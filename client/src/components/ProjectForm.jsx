@@ -14,7 +14,7 @@ const ProjectForm = ( {addProject, addActivity} ) => {
     const acitivtyLogItem = {
       type: "project_added",
       message: "Added project "+formData.get("project-name"),
-      dateAdded: Date()
+      date: Date()
     }
 
     addProject(newProject)
@@ -29,7 +29,7 @@ const ProjectForm = ( {addProject, addActivity} ) => {
       <input type="text" name="tech-stack" placeholder="React, Node, Supabase"/>
       <select name="status">
         {/* change later to fetch options from db?*/} 
-        <option value="in_progrress">In progress</option>
+        <option value="in_progress">In progress</option>
         <option value="paused">Paused</option>
         <option value="completed">Completed</option>
       </select>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const UpdateProjectForm = ({project, updateProject, cancel, setCancel}) => {
+const UpdateProjectForm = ({project, updateProject, cancel, setCancel, addActivity}) => {
 
   const [name, setName] = useState(project.name)
   const [description, setDescription] = useState(project.description)
@@ -13,10 +13,11 @@ const UpdateProjectForm = ({project, updateProject, cancel, setCancel}) => {
     const acitivtyLogItem = {
       type: "project_updated",
       message: "Updated project "+name,
-      dateAdded: Date()
+      date: Date()
     }
     
     setCancel(!cancel)
+    addActivity(acitivtyLogItem)
     console.log(name)
   }
 

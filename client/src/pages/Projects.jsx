@@ -22,7 +22,7 @@ const Projects = ({projects, deleteProject, updateProject, addProject, addActivi
       {showForm? <ProjectForm addProject={addProject} addActivity={addActivity}/> : <></>}
 
       {projects.map(project => 
-        <ProjectCard key={project.id} project={project} showActions={true} deleteProject={deleteProject} updateProject={updateProject} editingId={editingId} setEditingId={setEditingId}/>
+        <ProjectCard key={project.id} project={project} showActions={true} deleteProject={deleteProject} updateProject={updateProject} editingId={editingId} setEditingId={setEditingId} addActivity={addActivity}/>
       )}
 
     </section>

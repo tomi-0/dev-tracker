@@ -12,7 +12,7 @@ const UpdateSkillForm = ({skill, updateSkill, addActivity, setCancel}) => {
     const acitivtyLogItem = {
       type: "skill_updated",
       message: "Updated skill "+name,
-      dateAdded: Date()
+      date: Date()
     }
 
     addActivity(acitivtyLogItem)
