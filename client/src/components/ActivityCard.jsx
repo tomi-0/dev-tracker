@@ -1,7 +1,9 @@
+import "../styles/ActivityCard.css"
+
 const ActivityCard = ({data}) => {
 
   return(
-    <div>
+    <div className="activity-card">
       <h2>{data.name}</h2>
       <p>{data.number}</p>
     </div>

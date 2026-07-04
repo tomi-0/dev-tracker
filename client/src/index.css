@@ -8,16 +8,17 @@ Typography defaults
 
 :root {
   /* backgrounds */
-  --bg: #16171d;
-  --bg-secondary: #1e1f27;
-  --bg-tertiary: #13141a;
+  --bg: #1a1a1a;
+  --bg-primary: #242424;
+  --bg-secondary: #2e2e2e;
+  --bg-tertiary: #1a1a1a;
 
   /* text */
   --text: #9ca3af;
   --text-h: #f3f4f6;
 
   /* borders */
-  --border: #2e303a;
+  --border: #545454;
 
   /* accent (purple) */
   --accent: #c084fc;
@@ -42,11 +43,26 @@ Typography defaults
   /* fonts */
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
+
+  /* status colours */
+  --status-progress-bg: rgba(139, 92, 246, 0.15);
+  --status-progress-text: #8b5cf6;      /* purple — your accent */
+
+  --status-paused-bg: #cacfd8;  
+  --status-paused-text: rgb(32, 32, 32);/* grey — neutral/inactive */
+
+  --status-completed-bg: rgba(29, 158, 117, 0.15);
+  --status-completed-text: #1D9E75;     /* green — success */
+}
+
+html {
+  margin: 0;
 }
 
 body {
+  margin: 0;
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 27px;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);

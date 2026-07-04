@@ -1,0 +1,27 @@
+nav {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-element {
+  margin: 0px 20px;
+  border: 1px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.nav-element:hover {
+  background-color: black;
+  transition: background-color 0.5s;
+}
+
+.nav-element:active {
+  background-color: var(--border);
+  transition: background-color 0.2s;
+}

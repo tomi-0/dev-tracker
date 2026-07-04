@@ -29,6 +29,6 @@ export const initialActivityLog = [
   { id: 6, type: "skill_added", message: "Added skill MongoDB", date: "2026-03-05" },
   { id: 7, type: "project_added", message: "Added project FSO phonebook", date: "2026-03-01" },
   { id: 8, type: "skill_added", message: "Added skill Node.js", date: "2026-03-01" },
-  { id: 9, type: "project_updated", message: "Marked FSO notes app as completed", date: "2026-02-20" },
-  { id: 10, type: "project_added", message: "Added project FSO notes app", date: "2026-02-20" },
+  { id: 9, type: "project_updated", message: "Marked FSO notes app as completed", date: "2026-06-22" },
+  { id: 10, type: "project_added", message: "Added project FSO notes app", date: "2026-06-25" },
 ]

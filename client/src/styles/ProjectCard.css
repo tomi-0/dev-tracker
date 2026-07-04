@@ -1,0 +1,40 @@
+.project-card {
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-info {
+  color: var(--text-h);
+  flex: 1;
+}
+
+.project-status {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 50px;
+}
+
+.in-progress { 
+  color: var(--status-progress-text);
+  background-color: var(--status-progress-bg);
+}
+
+.paused { 
+  color: var(--status-paused-text);
+  background-color: var(--status-paused-bg)
+}
+
+.completed {
+  color: var(--status-completed-text);
+  background-color: var(--status-completed-bg)
+}
+
+.project-stack {
+  color: var(--text);
+}

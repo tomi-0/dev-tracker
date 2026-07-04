@@ -24,19 +24,25 @@ const Dashboard = ({skills, projects, activityLog}) => {
 
   return(
     <section>
-      <h1>Dashboard</h1>
-      <p>Here's where you're at this week</p>
-
-      {cardObject.map(d => (<ActivityCard key={d.id} data={d}/>))}
-
-      <div>
-        <p>RECENT ACTIVITY</p>
-        {recentActivity.map(activity => (<ActivityLog key={activity.id} activity={activity}/>))}
+      <div className="dashboard-header">
+        <h1>Dashboard</h1>
+        <p>Here's where you're at this week</p>
       </div>
-      
-      <div>
-        <h3>IN PROGRESS</h3>
-        {inProgress.map(project => (<ProjectCard key={project.id} project={project} showActions={false}/>))}
+
+      <div className="dashboard-activity-cards">
+        {cardObject.map(d => (<ActivityCard key={d.id} data={d}/>))}
+      </div>
+
+      <div className="dashboard-activity-container">
+          <div className="dashboard-activity">
+          <p className="headers">RECENT ACTIVITY</p>
+          {recentActivity.map(activity => (<ActivityLog key={activity.id} activity={activity}/>))}
+        </div>
+        
+        <div className="dashboard-progress">
+          <p className="headers">IN PROGRESS / PAUSED</p>
+          {inProgress.map(project => (<ProjectCard key={project.id} project={project} showActions={false}/>))}
+        </div>
       </div>
       
       

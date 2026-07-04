@@ -1,3 +1,5 @@
+import "../styles/ActivityLog.css"
+
 const timeAgo = (date1, date2) => {
   // difference in milliseconds
   const diffMs = date1 - date2
@@ -7,7 +9,13 @@ const timeAgo = (date1, date2) => {
   if (diffDays >= 1) return `${diffDays}d ago`
   if (diffHours >= 1) return `${diffHours}h ago`
   return "just now"
-  
+}
+
+const colour = (message) => {
+  if (message.includes("skill")) {
+    return "activity-dot dot-skill"
+  }
+  return "activity-dot dot-project"
 }
 
 const ActivityLog = ({activity}) => {
@@ -15,8 +23,9 @@ const ActivityLog = ({activity}) => {
   today.getDate()
 
   return(
-    <div>
-      <p>{activity.message}</p>
+    <div className="activity-log-item">
+      <div className={colour(activity.message)}></div>
+      <h1>{activity.message}</h1>
       <p>{timeAgo(new Date(), new Date(activity.date))}</p>
     </div>
   )
