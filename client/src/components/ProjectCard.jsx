@@ -1,6 +1,7 @@
 import { useState } from "react"
 import UpdateProjectForm from "./UpdateProjectForm"
 import '../styles/ProjectCard.css'
+import { SquarePen, Trash } from 'lucide-react';
 
 const ProjectCard= ({project, showActions, deleteProject, updateProject, editingId, setEditingId}) => {
   const [cancel, setCancel] = useState(true)
@@ -37,16 +38,14 @@ const ProjectCard= ({project, showActions, deleteProject, updateProject, editing
       </div>
       <p className={get_colour(project.status)}>{status_text(project.status)}</p>
       {!showActions? <></> :
-        <>
-        <button onClick={() => {
+        <div className="buttons">
+        <SquarePen className="edit-button" size={30} color="white" onClick={() => {
           setEditingId(project.id) 
           setCancel(false)
-        }}>
-          Edit
-        </button>
+        }}/>
           {editingId === project.id && !cancel? <UpdateProjectForm  project={project} updateProject={updateProject} cancel={cancel} setCancel={setCancel}/> : <></>}
-        <button onClick={() => deleteProject(project.id)}>Delete</button>
-        </>
+        <Trash className="edit-button" size={30} color="white" onClick={() => deleteProject(project.id)}/>
+        </div>
       }
       
     </div>

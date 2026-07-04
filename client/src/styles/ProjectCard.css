@@ -38,3 +38,16 @@
 .project-stack {
   color: var(--text);
 }
+
+.buttons {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-button {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 15px;
+  margin-right: 20px;
+}

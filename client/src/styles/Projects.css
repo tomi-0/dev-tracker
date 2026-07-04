@@ -1,0 +1,18 @@
+.project-text {
+  margin-top: -25px;
+}
+
+.project-left {
+  flex: 1;
+}
+
+.project-header {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.projects-container {
+  background: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 20px;
+}
