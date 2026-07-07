@@ -1,3 +1,5 @@
+import "../styles/ProjectCard.css"
+
 const ProjectForm = ( {addProject, addActivity} ) => {
 
   const addNewProject = (formData) => {
@@ -33,7 +35,7 @@ const ProjectForm = ( {addProject, addActivity} ) => {
         <option value="paused">Paused</option>
         <option value="completed">Completed</option>
       </select>
-      <button type="submit">Save Project</button>
+      <button className="project-add-button" type="submit">Save Project</button>
     </form>
   )
 

@@ -20,7 +20,7 @@ const Projects = ({projects, deleteProject, updateProject, addProject, addActivi
           <p className="project-text">All your logged coding projects</p>
         </div>
 
-        <button onClick={changeFormView}>
+        <button className="project-add-button" onClick={changeFormView}>
           {showForm? "Cancel" : "+ New project" }
         </button>
       </div>

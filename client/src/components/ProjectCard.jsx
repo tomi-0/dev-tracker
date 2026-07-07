@@ -32,22 +32,25 @@ const ProjectCard= ({project, showActions, deleteProject, updateProject, editing
 
   return(
     <div className="project-card">
-      <div className="project-info">
-        <p>{project.name}</p>
-        <p className="project-stack">{project.stack}</p>
-      </div>
-      <p className={get_colour(project.status)}>{status_text(project.status)}</p>
-      {!showActions? <></> :
-        <div className="buttons">
-        <SquarePen className="edit-button" size={30} color="white" onClick={() => {
-          setEditingId(project.id) 
-          setCancel(false)
-        }}/>
-          {editingId === project.id && !cancel? <UpdateProjectForm  project={project} updateProject={updateProject} cancel={cancel} setCancel={setCancel}/> : <></>}
-        <Trash className="edit-button" size={30} color="white" onClick={() => deleteProject(project.id)}/>
+      <div className="project-card-left">
+        <div className="project-info project-name">
+          <p>{project.name}</p>
+          <p className="project-stack">{project.stack}</p>
         </div>
-      }
-      
+        <p className={get_colour(project.status)}>{status_text(project.status)}</p>
+        {!showActions? <></> :
+          <div className="buttons">
+          <SquarePen className="edit-button" size={30} color="white" onClick={() => {
+            setEditingId(project.id) 
+            setCancel(false)
+          }}/>
+          <Trash className="edit-button" size={30} color="white" onClick={() => deleteProject(project.id)}/>
+          </div>
+        }
+      </div>
+      <div className="editing-form">
+        {editingId === project.id && !cancel? <UpdateProjectForm  project={project} updateProject={updateProject} cancel={cancel} setCancel={setCancel}/> : <></>}
+      </div>
     </div>
   )
 }

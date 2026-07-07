@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../styles/UpdateProjectForm.css"
 
 const UpdateProjectForm = ({project, updateProject, cancel, setCancel, addActivity}) => {
 
@@ -25,20 +26,22 @@ const UpdateProjectForm = ({project, updateProject, cancel, setCancel, addActivi
     <form action={editProject}>
       {/*if you give an input a value prop, you're telling React 
       "I'm in charge of this value" — so React expects you to also handle changes via onChange*/}
-      <input value={name} onChange={(e) => setName(e.target.value)}/>
-      <input value={description} onChange={(e) => setDescription(e.target.value)}/>
-      {/* change later to checbox of saved skills?*/}
+      <input className="project-form-name" value={name} onChange={(e) => setName(e.target.value)}/>
       <input value={stack} onChange={(e) => setStack(e.target.value)}/>
+      <input className="full" value={description} onChange={(e) => setDescription(e.target.value)}/>
+      {/* change later to checbox of saved skills?*/}
       <select value={status} onChange={(e) => setStatus(e.target.value)}>
         {/* change later to fetch options from db?*/} 
         <option value="in_progrress">In progress</option>
         <option value="paused">Paused</option>
         <option value="completed">Completed</option>
       </select>
-      <button onClick={ () =>
-        setCancel(!cancel)
-      } >Cancel</button>
-      <button type="submit">Save</button>
+      <div className="form-buttons">
+        <button className="form-button" onClick={ () =>
+          setCancel(!cancel)
+        } >Cancel</button>
+        <button className="form-button" type="submit">Save</button>
+      </div>
     </form>
   )
 }
