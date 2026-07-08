@@ -1,0 +1,151 @@
+.skill-card {
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.skill-title {
+  color: var(--text-h);
+  font-size: 29px;
+  margin-right: 20px;
+  width: 10rem;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+}
+
+.skill-category {
+  margin-right: 30px;
+  display: flex;
+  justify-content: start;
+}
+
+.project-stack {
+  color: var(--text);
+}
+
+.buttons {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 20px;
+}
+
+.editing-form {
+  display: block
+}
+
+.empty-skill-bar {
+  display: flex;
+  flex: 1;
+  background-color: var(--bg-primary);
+  height: 1vh;
+  border-radius: 20px;
+}
+
+.confidence-rating {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.skill-card {
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.skill-title {
+  color: var(--text-h);
+  font-size: 29px;
+  margin-right: 20px;
+  max-width: 10rem;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+}
+
+.skill-category {
+  margin-right: 30px;
+  display: flex;
+  justify-content: start;
+}
+
+.project-stack {
+  color: var(--text);
+}
+
+.buttons {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.editing-form {
+  display: block
+}
+
+.empty-skill-bar {
+  display: flex;
+  flex: 1;
+  background-color: var(--bg-primary);
+  height: 1vh;
+  border-radius: 20px;
+  position: relative;
+}
+
+.skill-bar {
+  display: flex;
+  background-color: var(--conf-low);
+  height: 1vh;
+  border-radius: 20px;
+  justify-content: start;
+}
+
+.low {
+  background-color: var(--conf-low);
+  width: 20%;
+}
+
+.mid {
+  background-color: var(--conf-mid);
+  width: 40%;
+}
+
+.mid-high {
+  background-color: var(--conf-mid-high);
+  width: 60%;
+}
+
+.high {
+  background-color: var(--conf-high);
+  width: 80%;
+}
+
+.max {
+  background-color: var(--conf-max);
+  width: 100%;
+}

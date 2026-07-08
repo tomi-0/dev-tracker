@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import "../styles/UpdateProjectForm.css"
+
 const UpdateSkillForm = ({skill, updateSkill, addActivity, setCancel}) => {
 
   const [name, setName] = useState(skill.name)
@@ -21,7 +23,7 @@ const UpdateSkillForm = ({skill, updateSkill, addActivity, setCancel}) => {
   }
 
   return (
-    <form action={editSkill}>
+    <form action={editSkill} className="skill-form">
       <input value={name} onChange={(e) => setName(e.target.value)}/>
        <select value={confidence} onChange={(e) => setConfidence(e.target.value)}>
         <option value="1">1</option>
@@ -38,8 +40,10 @@ const UpdateSkillForm = ({skill, updateSkill, addActivity, setCancel}) => {
         <option value="Tools">Tools</option>
         <option value="Concepts">Concepts</option>
       </select>
-      <button type="submit">Save</button>
-      <button onClick={() => setCancel(true)}>Cancel</button>
+      <div className="form-buttons">
+        <button className="form-button" type="submit">Save</button>
+        <button className="form-button" onClick={() => setCancel(true)}>Cancel</button>
+      </div>
     </form>
   )
 }

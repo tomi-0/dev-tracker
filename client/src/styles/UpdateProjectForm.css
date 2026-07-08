@@ -2,11 +2,10 @@ form {
   background-color: var(--bg-primary);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
   border-radius: 20px;
   margin-bottom: 30px;
-  padding-bottom: 20px;
   padding: 20px;
+  min-height: max-content;
 }
 
 input, select {
@@ -58,4 +57,8 @@ input, select {
 .form-button:active {
   background-color: var(--border);
   transition: background-color 0.2s;
+}
+
+.skill-form {
+  margin-bottom: 50px;
 }

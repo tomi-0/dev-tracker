@@ -1,3 +1,5 @@
+import "../styles/UpdateProjectForm.css"
+
 const SkillForm = ({addSkill, addActivity}) => {
 
   const handleSkillForm = (formData) => {
@@ -37,7 +39,7 @@ const SkillForm = ({addSkill, addActivity}) => {
         <option value="Tools">Tools</option>
         <option value="Concepts">Concepts</option>
       </select>
-      <button type="submit">Save Skill</button>
+      <button className="form-button" type="submit">Save Skill</button>
     </form>
   )
 }
