@@ -1,7 +1,7 @@
 import { supabase } from "../supabase.js"
 
 
-export const getAllProjects = async (req, res, next) => {
+export const getAllProjects = async (req, res) => {
   const { data, error } = await supabase
     .from("projects")
     .select("*")
