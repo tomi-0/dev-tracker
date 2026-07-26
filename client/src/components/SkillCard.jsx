@@ -20,13 +20,13 @@ const SkillCard = ({ skill, updateSkill, deleteSkill, addActivity, editingId, se
     <>
     <div className="skill-card">
       <div className="skill-info">
-        <h2 className="skill-title">{skill.name}</h2>
-        <p className="skill-category">{skill.category}</p>
+        <h2 className="skill-title">{skill.skill_name}</h2>
+        <p className="skill-category">{skill.skill_category}</p>
       </div>
         <div className="empty-skill-bar">
-          <div className={confidenceLabelStyle[skill.confidence]}></div>
+          <div className={confidenceLabelStyle[skill.skill_confidence]}></div>
         </div>
-      <p className="confidence-rating">{skill.confidence+"/5"}</p>
+      <p className="confidence-rating">{skill.skill_confidence+"/5"}</p>
       <SquarePen className="edit-button" onClick={() => {
         setCancel(false)
         setEditingId(skill.id)

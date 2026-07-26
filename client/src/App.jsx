@@ -10,6 +10,7 @@ import Skills from './pages/Skills'
 
 import projectService from './services/projectService'
 import activityService from './services/activityService'
+import skillService from './services/skillService'
 
 import './App.css'
 
@@ -18,7 +19,7 @@ const App = () => {
   // pass it down as props, otherwise they each have their own separate copy 
   // and adding a project on the Projects page wouldn't show up on the Dashboard
 
-  const [skills, setSkills] = useState(initialSkills)
+  const [skills, setSkills] = useState([])
   const [projects, setProjects] = useState([])
   const [activityLog, setActivityLog] = useState([])
 
@@ -27,8 +28,10 @@ const App = () => {
   const fetchData = async () => {
     const fetchProjects = await projectService.getAll()
     const fetchActivity = await activityService.getAll()
+    const fetchSkills = await skillService.getAll()
     setProjects(fetchProjects)
     setActivityLog(fetchActivity)
+    setSkills(fetchSkills)
     console.log("Hi")
   }
 
@@ -60,16 +63,23 @@ const App = () => {
 
 
   // Skill methods
-  const deleteSkill = (id) => {
+  const deleteSkill = async (id) => {
+    const res = await skillService.deleteSkill(id)
+    console.log(res)
     setSkills(skills.filter(s => s.id !== id))
   }
 
-  const updateSkill = (newSkill) => {
-    setSkills(skills.map(s => s.id === newSkill.id? newSkill : s))
+  const updateSkill = async (newSkill) => {
+    const res = await skillService.updateSkill(newSkill)
+    console.log(res.message)
+    const skill = res.data
+    setSkills(skills.map(s => s.id === skill.id? skill : s))
   }
 
-  const addSkill = (newSkill) => {
-    setSkills([...skills, newSkill])
+  const addSkill = async (newSkill) => {
+    const res = await skillService.addSkill(newSkill)
+    console.log(res)
+    setSkills([...skills, res.data])
   }
 
 

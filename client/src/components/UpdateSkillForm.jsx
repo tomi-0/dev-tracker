@@ -4,41 +4,42 @@ import "../styles/UpdateProjectForm.css"
 
 const UpdateSkillForm = ({skill, updateSkill, addActivity, setCancel}) => {
 
-  const [name, setName] = useState(skill.name)
-  const [confidence, setConfidence] = useState(skill.confidence)
-  const [category, setCategory] = useState(skill.category)
+  const [skill_name, setName] = useState(skill.skill_name)
+  const [skill_confidence, setConfidence] = useState(skill.skill_confidence)
+  const [skill_category, setCategory] = useState(skill.skill_category)
 
   const editSkill = () => {
-    updateSkill({...skill, name, confidence, category})
+    const today = new Date()
+    setConfidence(parseInt(skill_confidence))
+    updateSkill({...skill, skill_name, skill_confidence, skill_category})
 
     const acitivtyLogItem = {
-      type: "skill_updated",
-      message: "Updated skill "+name,
-      date: Date()
+      activity_type: "skill_updated",
+      activity_message: "Updated skill "+skill_name,
+      activity_date: today.toISOString()
     }
 
     addActivity(acitivtyLogItem)
-    //console.log(name)
     setCancel(true)
   }
 
   return (
     <form action={editSkill} className="skill-form">
-      <input value={name} onChange={(e) => setName(e.target.value)}/>
-       <select value={confidence} onChange={(e) => setConfidence(e.target.value)}>
+      <input value={skill_name} onChange={(e) => setName(e.target.value)}/>
+       <select value={skill_confidence} onChange={(e) => setConfidence(e.target.value)}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="Frontend">Frontend</option>
-        <option value="Backend">Backend</option>
-        <option value="Language">Language</option>
-        <option value="Database">Database</option>
-        <option value="Tools">Tools</option>
-        <option value="Concepts">Concepts</option>
+      <select value={skill_category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="FRONTEND">Frontend</option>
+        <option value="BACKEND">Backend</option>
+        <option value="LANGUAGE">Language</option>
+        <option value="DATABASE">Database</option>
+        <option value="TOOOLS">Tools</option>
+        <option value="CONCEPTS">Concepts</option>
       </select>
       <div className="form-buttons">
         <button className="form-button" type="submit">Save</button>

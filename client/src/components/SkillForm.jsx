@@ -3,22 +3,23 @@ import "../styles/UpdateProjectForm.css"
 const SkillForm = ({addSkill, addActivity}) => {
 
   const handleSkillForm = (formData) => {
+    const today = new Date()
+
     const newSkill = {
-        name: formData.get("skill-name"),
-        confidence: formData.get("skill-confidence"),
-        category: formData.get("skill-category"),
-        dateAdded: Date()
+        skill_name: formData.get("skill-name"),
+        skill_confidence: parseInt(formData.get("skill-confidence")),
+        skill_category: formData.get("skill-category"),
+        skill_date_added: today.toISOString()
     }
 
     const acitivtyLogItem = {
-      type: "skill_added",
-      message: "Added skill "+formData.get("skill-name"),
-      date: Date()
+      activity_type: "skill_added",
+      activity_message: "Added skill "+formData.get("skill-name"),
+      activity_date: today.toISOString()
     }
 
     addSkill(newSkill)
     addActivity(acitivtyLogItem)
-    //console.log(newSkill)
   }
 
   return(
@@ -32,12 +33,12 @@ const SkillForm = ({addSkill, addActivity}) => {
         <option value="5">5</option>
       </select>
       <select id="category" name="skill-category" placeholder="e.g. Frontend">
-        <option value="Frontend">Frontend</option>
-        <option value="Backend">Backend</option>
-        <option value="Language">Language</option>
-        <option value="Database">Database</option>
-        <option value="Tools">Tools</option>
-        <option value="Concepts">Concepts</option>
+        <option value="FRONTEND">Frontend</option>
+        <option value="BACKEND">Backend</option>
+        <option value="LANGUAGE">Language</option>
+        <option value="DATABASE">Database</option>
+        <option value="TOOLS">Tools</option>
+        <option value="CONCEPTS">Concepts</option>
       </select>
       <button className="form-button" type="submit">Save Skill</button>
     </form>
