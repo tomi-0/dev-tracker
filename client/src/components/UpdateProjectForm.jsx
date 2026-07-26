@@ -3,38 +3,38 @@ import "../styles/UpdateProjectForm.css"
 
 const UpdateProjectForm = ({project, updateProject, cancel, setCancel, addActivity}) => {
 
-  const [name, setName] = useState(project.name)
-  const [description, setDescription] = useState(project.description)
-  const [stack, setStack] = useState(project.stack)
-  const [status, setStatus] = useState(project.status)
+  const [project_name, setName] = useState(project.project_name)
+  const [project_description, setDescription] = useState(project.project_description)
+  const [project_stack, setStack] = useState(project.project_stack)
+  const [project_status, setStatus] = useState(project.project_status)
 
   const editProject = (formData) => {
-    updateProject({...project,name, description, stack, status})
+    updateProject({...project,project_name, project_description, project_stack, project_status})
+    const today = new Date()
 
     const acitivtyLogItem = {
-      type: "project_updated",
-      message: "Updated project "+name,
-      date: Date()
+      activity_type: "project_updated",
+      activity_message: "Updated project "+project_name,
+      activity_date: today.toISOString()
     }
     
     setCancel(!cancel)
     addActivity(acitivtyLogItem)
-    console.log(name)
   }
 
   return (
     <form action={editProject}>
       {/*if you give an input a value prop, you're telling React 
       "I'm in charge of this value" — so React expects you to also handle changes via onChange*/}
-      <input className="project-form-name" value={name} onChange={(e) => setName(e.target.value)}/>
-      <input value={stack} onChange={(e) => setStack(e.target.value)}/>
-      <input className="full" value={description} onChange={(e) => setDescription(e.target.value)}/>
+      <input className="project-form-name" value={project_name} onChange={(e) => setName(e.target.value)}/>
+      <input value={project_stack} onChange={(e) => setStack(e.target.value)}/>
+      <input className="full" value={project_description} onChange={(e) => setDescription(e.target.value)}/>
       {/* change later to checbox of saved skills?*/}
-      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+      <select value={project_status} onChange={(e) => setStatus(e.target.value)}>
         {/* change later to fetch options from db?*/} 
-        <option value="in_progrress">In progress</option>
-        <option value="paused">Paused</option>
-        <option value="completed">Completed</option>
+        <option value="IN_PROGRESS">In progress</option>
+        <option value="PAUSED">Paused</option>
+        <option value="COMPLETED">Completed</option>
       </select>
       <div className="form-buttons">
         <button className="form-button" onClick={ () =>

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { initialProjects, initialSkills, initialActivityLog } from './data/testData'
 
@@ -8,29 +8,58 @@ import Dashboard from './pages/Dashboard'
 import Projects from './pages/Projects'
 import Skills from './pages/Skills'
 
+import projectService from './services/projectService'
+import activityService from './services/activityService'
+
 import './App.css'
 
 const App = () => {
   // if both Dashboard and Projects need access to the same projects data,
   // pass it down as props, otherwise they each have their own separate copy 
   // and adding a project on the Projects page wouldn't show up on the Dashboard
-  const [skills, setSkills] = useState(initialSkills)
-  const [projects, setProjects] = useState(initialProjects)
-  const [activityLog, setActivityLog] = useState(initialActivityLog)
 
-  const deleteProject = (id) => {
+  const [skills, setSkills] = useState(initialSkills)
+  const [projects, setProjects] = useState([])
+  const [activityLog, setActivityLog] = useState([])
+
+  //  wrap our async function in useCallback to map it with dependency array.
+  //  if not wrapped the function will re-render on every update which will result in triggering the useEffect hook again
+  const fetchData = async () => {
+    const fetchProjects = await projectService.getAll()
+    const fetchActivity = await activityService.getAll()
+    setProjects(fetchProjects)
+    setActivityLog(fetchActivity)
+    console.log("Hi")
+  }
+
+  useEffect(() => {
+    fetchData()
+  } , [])
+
+
+  // Project methods
+  const deleteProject = async (id) => {
+    const res = await projectService.deleteProject(id)
+    console.log(res)
     setProjects(projects.filter(p => p.id !== id))
   }
 
-  const updateProject = (newProject) => {
-    setProjects(projects.map(p => p.id === newProject.id? newProject : p))
+  const updateProject = async (newProject) => {
+    const res = await projectService.updateProject(newProject)
+    console.log(res.message)
+    const project = res.data
+    setProjects(projects.map(p => p.id === project.id? project : p))
   }
 
-  const addProject = (newProject) => {
+  const addProject = async (newProject) => {
     // spread operator (...) creates a new array by copying all elements of arr and appending the object obj at the end.
-    setProjects([...projects, newProject])
+    const res = await projectService.addProject(newProject)
+    console.log(res.message)
+    setProjects([...projects, res.data])
   }
 
+
+  // Skill methods
   const deleteSkill = (id) => {
     setSkills(skills.filter(s => s.id !== id))
   }
@@ -43,8 +72,12 @@ const App = () => {
     setSkills([...skills, newSkill])
   }
 
-  const addActivity = (newActivity) => {
-    setActivityLog([...activityLog, newActivity])
+
+  // Activity methods
+  const addActivity = async (newActivity) => {
+    const res = await activityService.addActivity(newActivity)
+    console.log(res.message)
+    setActivityLog([...activityLog, res.data])
   }
 
   return (

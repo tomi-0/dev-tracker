@@ -1,7 +1,7 @@
 import { supabase } from "../supabase.js"
 
 
-export const getAllProjects = async (req, res) => {
+export const getAllProjects = async (req, res, next) => {
   const { data, error } = await supabase
     .from("projects")
     .select("*")
@@ -21,6 +21,8 @@ export const updateProject = async (req, res) => {
     return res.status(400).json({error: "Missing id"})
   }
 
+  console.log(req.body)
+
   const new_project = req.body
 
   const {
@@ -30,7 +32,7 @@ export const updateProject = async (req, res) => {
     project_date_added
   } = new_project
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("projects")
     .update({
       project_name,
@@ -39,13 +41,15 @@ export const updateProject = async (req, res) => {
       project_date_added
     })
     .eq('id', id)
+    .select()
+    .single()
 
   if (error) {
     return res.status(500).json({error: error.message})
   }
 
   // sends json response of data
-  res.status(204).json({message:"Successfully updated project"})
+  res.status(201).json({data, message:"Successfully updated project"})
 }
 
 export const addProject = async (req, res) => {
@@ -58,25 +62,29 @@ export const addProject = async (req, res) => {
   const {
     project_name,
     project_description,
+    project_stack,
     project_status,
     project_date_added
   } = project
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("projects")
     .insert({
       project_name: project_name,
       project_description: project_description,
+      project_stack: project_stack,
       project_status: project_status,
       project_date_added: project_date_added
     })
+    .select() //  without this, `data` is null/empty
+    .single() // returns the object directly instead of an array
 
   if (error) {
     return res.status(500).json({error: error.message})
   }
 
   // sends json response of data
-  res.status(204).json({message:"Successfully added project"})
+  res.status(201).json({message:"Successfully added project", data: data})
 }
 
 export const deleteProject = async (req, res) => {
@@ -92,8 +100,8 @@ export const deleteProject = async (req, res) => {
     .eq("id", project_id)
 
   if (error) {
-    res.status(500).json({ error: error.message})
+    return res.status(500).json({ error: error.message})
   }
 
-  res.status(204).json({message:"Successfully deleted project"})
+  res.status(200).json({message:"Successfully deleted project"})
 }

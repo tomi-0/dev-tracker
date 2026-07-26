@@ -7,19 +7,15 @@ const Dashboard = ({skills, projects, activityLog}) => {
   const weekAgo = new Date()
   weekAgo.setDate(weekAgo.getDate() - 7)
 
-  const recentProjects = projects.filter(p => (new Date(p.dateAdded) >= weekAgo))
-  const recentActivity = activityLog.filter(a => (new Date(a.date) >= weekAgo))
-  const recentSkills = skills.filter(s => (new Date(s.dateAdded) >= weekAgo))
-  const inProgress = projects.filter(p => (p.status === "in_progress" || p.status === "paused"))
-
-  console.log(skills)
-  console.log(projects)
-  console.log(activityLog)
+  const recentProjects = projects.filter(p => (new Date(p.project_date_added) >= weekAgo))
+  const recentActivity = activityLog.filter(a => (new Date(a.activity_date) >= weekAgo))
+  const recentSkills = skills.filter(s => (new Date(s.skills_date_added) >= weekAgo))
+  const inProgress = projects.filter(p => (p.project_status === "in_progress" || p.project_status === "paused"))
 
   const cardObject = [
     {id: 0, name:"PROJECTS", number:recentProjects.length},
     {id: 1, name:"SKILLS TRACKED", number:recentSkills.length},
-    {id: 2, name:"COMPLETED", number:recentProjects.filter(p => p.status === "completed").length}
+    {id: 2, name:"COMPLETED", number:recentProjects.filter(p => p.project_status.toLowerCase() === "completed").length}
   ]
 
   return(

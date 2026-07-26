@@ -3,20 +3,22 @@ import "../styles/ProjectCard.css"
 const ProjectForm = ( {addProject, addActivity} ) => {
 
   const addNewProject = (formData) => {
+    const today = new Date()
+
     // add new project 
     const newProject = {
-      name: formData.get("project-name"), 
-      description: formData.get("description"), 
-      stack: formData.get("tech-stack"), 
-      status: formData.get("status"), 
-      dateAdded: Date()
+      project_name: formData.get("project-name"), 
+      project_description: formData.get("description"), 
+      project_stack: formData.get("tech-stack"), 
+      project_status: formData.get("status"), 
+      project_date_added: today.toISOString()
     }
 
     // add new item to activity log
     const acitivtyLogItem = {
-      type: "project_added",
-      message: "Added project "+formData.get("project-name"),
-      date: Date()
+      activity_type: "project_added",
+      activity_message: "Added project "+formData.get("project-name"),
+      activity_date: today.toISOString()
     }
 
     addProject(newProject)
@@ -31,9 +33,9 @@ const ProjectForm = ( {addProject, addActivity} ) => {
       <input type="text" name="tech-stack" placeholder="React, Node, Supabase"/>
       <select name="status">
         {/* change later to fetch options from db?*/} 
-        <option value="in_progress">In progress</option>
-        <option value="paused">Paused</option>
-        <option value="completed">Completed</option>
+        <option value="IN_PROGRESS">In progress</option>
+        <option value="PAUSED">Paused</option>
+        <option value="COMPLETED">Completed</option>
       </select>
       <button className="project-add-button" type="submit">Save Project</button>
     </form>

@@ -2,7 +2,7 @@ import "../styles/ActivityLog.css"
 
 const timeAgo = (date1, date2) => {
   // difference in milliseconds
-  const diffMs = date1 - date2
+  const diffMs = date2 - date1
   const diffDays = Math.floor(diffMs / (1000* 60 * 60 *24))
   const diffHours = Math.floor(diffMs/ (1000 * 60 * 60))
   
@@ -24,9 +24,9 @@ const ActivityLog = ({activity}) => {
 
   return(
     <div className="activity-log-item">
-      <div className={colour(activity.message)}></div>
-      <h1>{activity.message}</h1>
-      <p>{timeAgo(new Date(), new Date(activity.date))}</p>
+      <div className={colour(activity.activity_message)}></div>
+      <h1>{activity.activity_message}</h1>
+      <p>{timeAgo(new Date(), new Date(activity.activity_date))}</p>
     </div>
   )
 }
