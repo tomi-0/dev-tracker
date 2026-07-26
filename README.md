@@ -2,7 +2,13 @@
 
 A full-stack web app for developers to log coding projects and track skills they're learning. Built as a learning project while working through [Full Stack Open](https://fullstackopen.com/).
 
-![App Screenshot](./docs/screenshot.png) <!-- Add a screenshot once your UI is built -->
+<img width="1917" height="956" alt="image" src="https://github.com/user-attachments/assets/0a999a10-5b0a-49cd-9362-9280dbb3fc6e" />
+
+---
+
+## 🎥 Demo Video
+
+https://github.com/user-attachments/assets/7ca0c433-4f9d-4f2d-a734-4ca67e55d8e2
 
 ---
 
@@ -11,8 +17,7 @@ A full-stack web app for developers to log coding projects and track skills they
 - 📁 **Project logging** — Add and manage coding projects with status tracking (In Progress / Completed / Paused)
 - 🧠 **Skill tracker** — Log technologies you're learning with a self-rated confidence level
 - 🔗 **Link skills to projects** — Associate what you learned with the project that taught you it
-- 🔐 **Authentication** — Secure sign-up and login via Supabase Auth
-- 📊 **Dashboard** — Overview of your progress at a glance
+- 📊 **Dashboard** — Overview of your progress at a glance, including recent activity and in-progress/paused projects
 
 ---
 
@@ -27,9 +32,8 @@ A full-stack web app for developers to log coding projects and track skills they
 - Express.js
 - REST API
 
-**Database & Auth**
+**Database**
 - [Supabase](https://supabase.com/) (PostgreSQL)
-- Supabase Auth (email/password)
 
 ---
 
@@ -43,13 +47,15 @@ A full-stack web app for developers to log coding projects and track skills they
 ### Installation
 
 1. **Clone the repository**
-   ```bash
+
+   ```
    git clone https://github.com/tomi-0/dev-tracker.git
    cd dev-tracker
    ```
 
 2. **Install dependencies**
-   ```bash
+
+   ```
    # Install backend dependencies
    cd server
    npm install
@@ -61,10 +67,11 @@ A full-stack web app for developers to log coding projects and track skills they
 
 3. **Set up environment variables**
 
-   Create a `.env` file in the `/server` directory (see [Environment Variables](#environment-variables) below).
+   Create a `.env` file in the `/server` directory (see [Environment Variables](#-environment-variables) below).
 
 4. **Run the app**
-   ```bash
+
+   ```
    # Start the backend (from /server)
    npm run dev
 
@@ -80,7 +87,7 @@ A full-stack web app for developers to log coding projects and track skills they
 
 Create a `.env` file in the `/server` directory with the following:
 
-```env
+```
 PORT=3001
 SUPABASE_URL=your_supabase_project_url
 SUPABASE_ANON_KEY=your_supabase_anon_key
@@ -114,8 +121,9 @@ dev-tracker/
 
 ---
 
-## 🗺️ Roadmap
+## 🗺️ Roadmap / Future Features
 
+- [ ] **Authentication** — Secure sign-up and login via Supabase Auth, so projects and skills are tied to individual accounts
 - [ ] Project tagging by tech stack
 - [ ] Daily coding streak tracker
 - [ ] Public profile page to share progress
@@ -130,10 +138,9 @@ This project was built to practice and consolidate concepts from [Full Stack Ope
 - React state and component design (Part 2)
 - Node.js and Express REST APIs (Part 3)
 - Supabase as a managed PostgreSQL backend
-- JWT-based authentication
 
 ---
 
 ## 📄 License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/tomi-0/dev-tracker/blob/main/LICENSE)
