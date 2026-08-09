@@ -138,7 +138,7 @@ dev-tracker/
 
 ## 🗺️ Roadmap
 
-- [ ] Connect frontend to Supabase backend
+- [x] Connect frontend to Supabase backend
 - [ ] User authentication (sign up / login)
 - [ ] Persist projects and skills to database
 - [ ] Project tagging by tech stack
